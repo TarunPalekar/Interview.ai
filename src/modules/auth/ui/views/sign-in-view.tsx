@@ -22,7 +22,7 @@ import { useState } from "react"
 import { callbackify } from "util"
 
 const formSchema = z.object({
-    email: z.email(),
+    email: z.string().email(),
     password: z.string().min(1, { message: "Password is required" })
 })
 export const SignInView = () => {
