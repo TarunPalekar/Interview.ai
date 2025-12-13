@@ -33,10 +33,35 @@ const formSchema = z.object({
 
 
 export const SignUpView = () => {
-
     const router = useRouter();
     const [error, setError] = useState<string | null>(null);
     const [pending, setPending] = useState(false);
+    const onSocial = (provider: "github" | "google") => {
+        setError(null)
+        authClient.signIn.social(
+            {
+                provider: provider,
+                callbackURL: "/"
+            },
+            {
+                onSuccess: () => {
+                    setPending(true)
+
+                },
+                onError: ({ error }) => {
+                    setError(error.message)
+
+                }
+
+
+
+
+            }
+
+        )
+
+    }
+
     const onSubmit = (data: z.infer<typeof formSchema>) => {
         setError(null)
         authClient.signUp.email(
@@ -194,6 +219,7 @@ export const SignUpView = () => {
                                 </div>
                                 <div className="grid grid-cols-2 gap-4">
                                     <Button
+                                     onClick={()=>onSocial("google")}
                                         disabled={pending}
                                         variant="outline"
                                         type="button"
@@ -202,6 +228,7 @@ export const SignUpView = () => {
                                         Google
                                     </Button>
                                     <Button
+                                     onClick={()=>onSocial("github")}
                                         disabled={pending}
                                         variant="outline"
                                         type="button"
