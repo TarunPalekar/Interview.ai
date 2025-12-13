@@ -19,12 +19,14 @@ import {
 } from "@/components/ui/form"
 import { Card, CardContent } from "@/components/ui/card"
 import { useState } from "react"
+import { callbackify } from "util"
 
 const formSchema = z.object({
     email: z.email(),
     password: z.string().min(1, { message: "Password is required" })
 })
 export const SignInView = () => {
+
 
     const router = useRouter();
     const [error, setError] = useState<string | null>(null);
@@ -40,6 +42,31 @@ export const SignInView = () => {
                 onSuccess: () => {
                     setPending(true)
                     router.push("/")
+                },
+                onError: ({ error }) => {
+                    setError(error.message)
+
+                }
+
+
+
+
+            }
+
+        )
+
+    }
+    const onSocial = (provider: "github" | "google") => {
+        setError(null)
+        authClient.signIn.social(
+            {
+                provider: provider,
+                callbackURL: "/"
+            },
+            {
+                onSuccess: () => {
+                    setPending(true)
+
                 },
                 onError: ({ error }) => {
                     setError(error.message)
@@ -129,7 +156,7 @@ export const SignInView = () => {
                                     </Alert>
                                 )}
                                 <Button
-                               
+
                                     disabled={pending}
                                     type="submit"
                                     className="w-full"
@@ -143,6 +170,7 @@ export const SignInView = () => {
                                 </div>
                                 <div className="grid grid-cols-2 gap-4">
                                     <Button
+                                    onClick={()=>onSocial("google")}
                                         disabled={pending}
                                         variant="outline"
                                         type="button"
@@ -151,6 +179,7 @@ export const SignInView = () => {
                                         Google
                                     </Button>
                                     <Button
+                                        onClick={()=>onSocial("github")}
                                         disabled={pending}
                                         variant="outline"
                                         type="button"
