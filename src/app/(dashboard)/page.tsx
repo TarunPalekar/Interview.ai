@@ -1,6 +1,8 @@
+
 import { headers } from "next/headers";
 import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
+import { HomeView } from "@/modules/home/ui/views/home-view";
 
 
  
@@ -15,7 +17,7 @@ const Page=async()=>{
   return(
     <>
    
-  {/* <homeView/> */}
+  {/* <HomeView/> */}
   </>
 )
 }
