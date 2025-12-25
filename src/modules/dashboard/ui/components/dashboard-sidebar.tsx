@@ -26,12 +26,12 @@ const firstSection=[
     {
         icon:VideoIcon,
         label:"Meetings",
-        href:"/"
+        href:"/dashboard"
     },
     {
         icon:BotIcon,
         label:"Agents",
-        href:"/agents",
+        href:"/dashboard/agents",
 
     }
 ];
@@ -41,7 +41,7 @@ const secondsection=[
 
         icon:StarIcon,
         label:"Upgrade",
-        href:"/upgrade"
+        href:"/dashboard/upgrade"
     }
 ];
  

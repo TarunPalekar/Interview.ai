@@ -16,8 +16,9 @@ const Page=async()=>{
   }
   return(
     <>
+    // this is the landing meeting page 
    
-  {/* <HomeView/> */}
+
   </>
 )
 }

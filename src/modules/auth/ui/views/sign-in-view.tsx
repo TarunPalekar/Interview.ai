@@ -41,7 +41,7 @@ export const SignInView = () => {
             {
                 onSuccess: () => {
                     setPending(true)
-                    router.push("/")
+                    router.push("/dashboard")
                 },
                 onError: ({ error }) => {
                     setError(error.message)

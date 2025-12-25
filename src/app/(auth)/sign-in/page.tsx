@@ -9,7 +9,7 @@ const Page=async()=> {
         headers:await headers(),
     })
     if(!!session){
-        redirect("/")
+        redirect("/sign-in")
     }
 
     return (<SignInView />)
