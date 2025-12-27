@@ -19,6 +19,7 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { toast } from "sonner";
+import { useEffect } from "react";
 
 interface AgentFormProps{
     onSuccess?:()=>void;
@@ -32,10 +33,26 @@ export const AgentForm=({
     onCancel,
     initialValues,
 }:AgentFormProps)=>{
+    
+    console.log(initialValues?.name)
     const trpc=useTRPC();
     const queryClient=useQueryClient();
     const createAgent=useMutation(
         trpc.agents.create.mutationOptions({
+            onSuccess:async ()=>{
+                await queryClient.invalidateQueries(
+                    trpc.agents.getMany.queryOptions({}),
+                );
+               
+                onSuccess?.();
+            },
+            onError:(error)=>{
+                toast.error(error.message)
+            },
+        })
+    )
+    const UpdateAgent=useMutation(
+        trpc.agents.update.mutationOptions({
             onSuccess:async ()=>{
                 await queryClient.invalidateQueries(
                     trpc.agents.getMany.queryOptions({}),
@@ -63,10 +80,10 @@ export const AgentForm=({
 
     })
     const isEdit=!!initialValues?.id;
-    const isPending=createAgent.isPending;
+    const isPending=createAgent.isPending||UpdateAgent.isPending
     const onSubmit=(values:z.infer<typeof agentsInsertSchema>)=>{
         if(isEdit){
-            console.log("TODO:update Agent")
+           UpdateAgent.mutate({...values, id:initialValues.id })
 
         }
         else{
@@ -74,6 +91,15 @@ export const AgentForm=({
         }
 
     }
+    useEffect(() => {
+  if (!!initialValues) {
+    form.reset({
+      instruction: initialValues.instructions ,
+      name: initialValues.name,
+    
+    });
+  }
+}, [initialValues, form]);
     return (
         <Form {...form}>
             <form className="space-y-4" onSubmit={form.handleSubmit(onSubmit)}>
