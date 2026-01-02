@@ -4,23 +4,23 @@ import { AgentForm } from "./agent-form";
 
 interface NewAgentDialogProps{
     open:boolean;
-    onOpenchange:(open:boolean)=>void;
+    onOpenChange:(open:boolean)=>void;
 }
 
 export const NewAgentDialog=({
     open,
-    onOpenchange,
+    onOpenChange,
 }:NewAgentDialogProps)=>{
     return(
         <ResponsiveDialog
         title="New Agent"
         description="Create a new agent"
         open={open}
-        onOpenChange={onOpenchange}
+        onOpenChange={onOpenChange}
         >
            <AgentForm
-           onSuccess={()=>onOpenchange(false)}
-           onCancel={()=>onOpenchange(false)}
+           onSuccess={()=>onOpenChange(false)}
+           onCancel={()=>onOpenChange(false)}
            />
         </ResponsiveDialog>
     )

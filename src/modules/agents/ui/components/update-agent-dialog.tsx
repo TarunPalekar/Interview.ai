@@ -5,13 +5,13 @@ import { AgentGetOne } from "../../types";
 
 interface UpdateAgentDialogProps{
     open:boolean;
-    onOpenchange:(open:boolean)=>void;
+    onOpenChange:(open:boolean)=>void;
     initialValues:AgentGetOne
 }
 
 export const UpdateAgentDialog=({
     open,
-    onOpenchange,
+    onOpenChange,
     initialValues,
 }:UpdateAgentDialogProps)=>{
     return(
@@ -19,11 +19,11 @@ export const UpdateAgentDialog=({
         title="Edit Agent"
         description="Edit the agent details"
         open={open}
-        onOpenChange={onOpenchange}
+        onOpenChange={onOpenChange}
         >
            <AgentForm
-           onSuccess={()=>onOpenchange(false)}
-           onCancel={()=>onOpenchange(false)}
+           onSuccess={()=>onOpenChange(false)}
+           onCancel={()=>onOpenChange(false)}
            initialValues={initialValues}
            />
         </ResponsiveDialog>
