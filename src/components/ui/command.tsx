@@ -72,6 +72,7 @@ function CommandResponsiveDialog({
   description = "Search for a command to run...",
   children,
   className,
+  shouldFilter=true,
   showCloseButton = true,
   ...props
 }: React.ComponentProps<typeof Dialog> & {
@@ -79,6 +80,7 @@ function CommandResponsiveDialog({
   description?: string
   className?: string
   showCloseButton?: boolean
+  shouldFilter?:boolean
 }) {
   const IsMobile=useIsMobile()
 if(IsMobile){

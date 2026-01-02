@@ -50,7 +50,7 @@ export const AgentIdView=({agentId}:Props)=>{
         <RemoveConfirmation/>
 <UpdateAgentDialog
 open={updateAgentDialogOpen}
-onOpenchange={setUpdateAgentDialogOpen}
+onOpenChange={setUpdateAgentDialogOpen}
 initialValues={values}
 
 />
