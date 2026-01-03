@@ -1,6 +1,6 @@
 import { DEFAULT_PAGE } from "@/constant"
 import {parseAsInteger, parseAsString, useQueryStates, parseAsStringEnum,} from "nuqs"
-import { meetingStatus } from "@/database/schema"
+import { meetingStatus } from "../types" 
 
 
  export const useMeetingsFilters=()=>{

@@ -7,65 +7,65 @@ import {
 } from "lucide-react"
 
 import { CommandSelect } from "@/components/command-select"
-import { meetingStatus } from "@/database/schema"
+
 import { useMeetingsFilters } from "../../hooks/use-meetings-filters"
 import { Value } from "@radix-ui/react-select"
 import { useState } from "react"
-import { MeetingStatus } from "../../types"
+import { meetingStatus } from "../../types"
 
 
 const options = [
     {
-        id: meetingStatus.enumValues[0],
-        value: meetingStatus.enumValues[0],
+        id: meetingStatus.Upcoming,
+        value: meetingStatus.Upcoming,
         children: (
             <div className="flex items-center gap-x-2 capitalize">
                 <ClockArrowUpIcon />
-                {meetingStatus.enumValues[0]}
+                {meetingStatus.Upcoming}
 
             </div>
         )
     },
     {
-        id: meetingStatus.enumValues[1],
-        value: meetingStatus.enumValues[1],
+        id: meetingStatus.Active,
+        value: meetingStatus.Active,
         children: (
             <div className="flex items-center gap-x-2 capitalize">
-                <ClockArrowUpIcon />
-                {meetingStatus.enumValues[1]}
+                <VideoIcon className="text-blue-500"/>
+                {meetingStatus.Active}
 
             </div>
         )
     },
     {
-        id: meetingStatus.enumValues[2],
-        value: meetingStatus.enumValues[2],
+        id: meetingStatus.Completed,
+        value: meetingStatus.Completed,
         children: (
             <div className="flex items-center gap-x-2 capitalize">
-                <ClockArrowUpIcon />
-                {meetingStatus.enumValues[2]}
+                <CircleCheckIcon className="text-green-500"/>
+                {meetingStatus.Completed}
 
             </div>
         )
     },
     {
-        id: meetingStatus.enumValues[3],
-        value: meetingStatus.enumValues[3],
+        id: meetingStatus.Processing,
+        value: meetingStatus.Processing,
         children: (
             <div className="flex items-center gap-x-2 capitalize">
-                <ClockArrowUpIcon />
-                {meetingStatus.enumValues[3]}
+                <LoaderIcon className="animate-spin text-green-800" />
+                {meetingStatus.Processing}
 
             </div>
         )
     },
     {
-        id: meetingStatus.enumValues[4],
-        value: meetingStatus.enumValues[4],
+        id: meetingStatus.Cancelled,
+        value: meetingStatus.Cancelled,
         children: (
             <div className="flex items-center gap-x-2 capitalize">
-                <ClockArrowUpIcon />
-                {meetingStatus.enumValues[4]}
+                <CircleXIcon className="text-red-600" />
+                {meetingStatus.Cancelled}
 
             </div>
         )
@@ -78,7 +78,7 @@ export const StatusFilter = () => {
             placeholder="Status"
             className="h-9"
             options={options}  
-            onSelect={(value) => setFilters({ status: value as MeetingStatus })}
+            onSelect={(value) => setFilters({ status: value as meetingStatus })}
             value={filters?.status ?? ""}
         />
 
