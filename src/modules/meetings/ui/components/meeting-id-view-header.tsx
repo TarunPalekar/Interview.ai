@@ -21,9 +21,6 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { ChevronRightIcon, TrashIcon, PencilIcon, MoreVerticalIcon } from "lucide-react"
 
-interface Props{
-
-}
 import Link from "next/link"
 export const MeetingIdViewHeader = ({
     meetingId,

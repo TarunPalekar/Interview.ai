@@ -28,7 +28,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
     const router=useRouter();
     const isMobile=useIsMobile();
     
-    const {data, isPending}=authClient.useSession();
+    const {data}=authClient.useSession();
     console.log(data)
     if(!data?.user){
         return null;

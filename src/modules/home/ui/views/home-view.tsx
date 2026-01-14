@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation"
 import{Button} from "@/components/ui/button"
 
 export const HomeView=()=>{
-    const session=authClient.getSession();
+  
     const router=useRouter()
     return (
         <div className="flex flex-col p-4 gay-y-4">

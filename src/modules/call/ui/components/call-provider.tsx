@@ -1,5 +1,5 @@
 "use client"
-import { LoaderIcon, Pen } from "lucide-react"
+import { LoaderIcon} from "lucide-react"
 import { authClient } from "@/lib/auth-client"
 import { generateAvatarUri } from "@/lib/avatar"
 import { CallConnect } from "./call-connect"
