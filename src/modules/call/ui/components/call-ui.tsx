@@ -1,4 +1,4 @@
-import { use, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { StreamTheme, useCall } from "@stream-io/video-react-sdk";
 import { CallLobby } from "./call-lobby";
 import { CallActive } from "./call-active";

@@ -1,9 +1,8 @@
 
 import { EmptyState } from "@/components/empty-state"
 import { Button } from "@/components/ui/button"
-import { BanIcon, VideoIcon } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
+import { BanIcon} from "lucide-react"
+
 import { useRouter } from "next/navigation"
 
 interface Props {

@@ -1,6 +1,6 @@
 import {
     CallEndedEvent,
-    MessageNewEvent,
+  
     CallTranscriptionReadyEvent,
     CallSessionParticipantLeftEvent,
     CallRecordingReadyEvent,

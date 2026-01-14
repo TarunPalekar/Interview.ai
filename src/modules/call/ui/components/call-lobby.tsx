@@ -1,4 +1,4 @@
-import { LogIn, LogInIcon } from "lucide-react";
+import { LogInIcon } from "lucide-react";
 import {
     DefaultVideoPlaceholder,
     StreamVideoParticipant,

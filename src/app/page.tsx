@@ -1,10 +1,9 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import { Video, Sparkles, Clock, FileText, MessageSquare, CheckCircle, Menu, X, ArrowRight, Play } from 'lucide-react';
+import { Video, Sparkles, Clock, FileText, MessageSquare, Menu, X, ArrowRight, Play } from 'lucide-react';
 import Image from 'next/image';
-import { redirect, useRouter } from 'next/navigation';
-import { auth } from '@/lib/auth';
-import { headers } from 'next/headers';
+import {  useRouter } from 'next/navigation';
+
 
 export default function Page  () {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

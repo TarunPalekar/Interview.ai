@@ -1,4 +1,4 @@
-import {CommandResponsiveDialog, CommandDialog, CommandInput } from "@/components/ui/command";
+import {CommandResponsiveDialog, CommandInput } from "@/components/ui/command";
 import { CommandItem, CommandList } from "cmdk";
 import { Dispatch, SetStateAction } from "react";
 

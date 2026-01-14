@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import { useTRPC } from "@/trpc/client";
 import "@stream-io/video-react-sdk/dist/css/styles.css"
 import { useMutation } from "@tanstack/react-query";
-import { ca } from "date-fns/locale";
+
 import { CallUI } from "./call-ui";
 
 interface Props{

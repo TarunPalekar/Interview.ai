@@ -9,8 +9,7 @@ import {
 import { CommandSelect } from "@/components/command-select"
 
 import { useMeetingsFilters } from "../../hooks/use-meetings-filters"
-import { Value } from "@radix-ui/react-select"
-import { useState } from "react"
+
 import { meetingStatus } from "../../types"
 
 
