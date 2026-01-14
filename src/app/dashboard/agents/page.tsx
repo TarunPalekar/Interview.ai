@@ -14,7 +14,7 @@ interface Props{
     searchParams:Promise<SearchParams>;
 }
 const Page= async({searchParams}:Props)=>{
-    const filters= loadSearchParams(searchParams)
+    const filters= await loadSearchParams(searchParams)
     const session=await auth.api.getSession({
         headers:await headers(),
     })
