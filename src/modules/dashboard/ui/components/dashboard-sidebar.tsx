@@ -17,7 +17,7 @@ import {
 import {VideoIcon, BotIcon, StarIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+
 import DashboarduserButton from "./dashboard-user-button";
 
 
