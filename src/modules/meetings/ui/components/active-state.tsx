@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { BanIcon, VideoIcon } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 interface Props {
     meetingId: string;
@@ -16,6 +17,7 @@ export const ActiveState = ({
     meetingId,
 
 }: Props) => {
+    const router=useRouter();
     return (
         <div className="bg-white rounded-lg px-4 py-5 flex flex-col gap-y-8 items-center justify-center">
             <EmptyState
@@ -27,6 +29,7 @@ export const ActiveState = ({
                 <Button
                     variant="secondary"
                     className="w-full lg:w-auto"
+                    onClick={()=>router.push(`/call/${meetingId}`)}
 
                 >
                     <BanIcon />
