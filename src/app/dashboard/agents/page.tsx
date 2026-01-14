@@ -11,7 +11,7 @@ import  type{ SearchParams } from "nuqs";
 import { loadSearchParams } from "@/modules/agents/params";
 
 interface Props{
-    searchParams:SearchParams
+    searchParams:Promise<SearchParams>;
 }
 const Page= async({searchParams}:Props)=>{
     const filters= loadSearchParams(searchParams)

@@ -12,7 +12,7 @@ import {
 
 } from "lucide-react"
 
-import { ColumnDef, RowExpanding } from "@tanstack/react-table"
+import { ColumnDef } from "@tanstack/react-table"
 import { MeetingGetMany } from "../../types"
 import { GeneratedAvatar } from "@/components/generated-avatar"
 
