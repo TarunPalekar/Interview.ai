@@ -13,13 +13,13 @@ export const CallUI=({meetingName}:Props)=>{
     const call=useCall();
     const [show, setShow]=useState<"lobby"|"call"|"ended">("lobby");
     const handleJoin=async()=>{
-        if (!call ) return; 
+        if (!call||hasJoinedRef.current ) return; 
         hasJoinedRef.current=true
     await call.join();
     setShow("call");
     }
     const handleLeave=async()=>{
-       if (!call) return;
+       if (!call|| hasLeftRef.current) return;
 
    hasLeftRef.current=true
     await call.endCall();   // ✅ correct
