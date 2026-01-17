@@ -13,7 +13,7 @@ export const CallUI=({meetingName}:Props)=>{
     const call=useCall();
     const [show, setShow]=useState<"lobby"|"call"|"ended">("lobby");
     const handleJoin=async()=>{
-        if (!call||hasJoinedRef.current ) return; 
+      
         hasJoinedRef.current=true
     await call.join();
     setShow("call");
@@ -22,7 +22,7 @@ export const CallUI=({meetingName}:Props)=>{
        if (!call|| hasLeftRef.current) return;
 
    hasLeftRef.current=true
-    await call.endCall();   // ✅ correct
+ call.endCall();   // ✅ correct
     setShow("ended");
     }
     return(
