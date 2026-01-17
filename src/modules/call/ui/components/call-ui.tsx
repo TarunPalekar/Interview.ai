@@ -15,7 +15,7 @@ export const CallUI=({meetingName}:Props)=>{
     const handleJoin=async()=>{
       
         hasJoinedRef.current=true
-    await call.join();
+    await call?.join();
     setShow("call");
     }
     const handleLeave=async()=>{
